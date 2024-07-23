@@ -1,4 +1,16 @@
+"use client";
+
+import { useContext, useEffect } from "react";
+
+//Components
+import GameButton from "./GameButton";
+import GameHeader from "./GameHeader/GameHeader";
+
+//Contexts
+import { GameContext } from "@/contexts/GameContext";
+
 //Types
+import { gameStatus } from "@/types/game";
 import { specieInfo } from "@/types/specie";
 
 interface GameProps {
@@ -7,25 +19,31 @@ interface GameProps {
 }
 
 export default function Game({ species, speciesTypes }: GameProps) {
-    return (
-        <div>
-            <h2>Types</h2>
+    const { game, dispatchGame } = useContext(GameContext);
 
-            {speciesTypes?.map((type, idx) => (
-                <div key={idx}>{type}</div>
-            ))}
+    useEffect(() => {
+        dispatchGame({ type: "init", gameSpecies: species, gameTypes: speciesTypes });
+    }, []);
 
-            <br />
+    if (game) {
+        if (game.status === gameStatus.loading) {
+            return <div>Loading</div>;
+        }
 
-            <h2>Species</h2>
-            {species?.map((item, idx) => (
-                <div key={idx}>
-                    {item.name} -{" "}
-                    {item.types.map((type, idx) => (
-                        <span key={idx}>{type} </span>
+        return (
+            <section className="w-full max-w-lg rounded-xl overflow-hidden">
+                <GameHeader
+                    counter={game.gameSpecies.length - game.index}
+                    gameStatus={game.status}
+                    specie={game.gameSpecies[game.index]}
+                />
+
+                <div className="grid grid-cols-3 grid-rows-3 gap-1 p-2 bg-background-light">
+                    {game.gameTypes?.map((gameType, idx) => (
+                        <GameButton key={idx} type={gameType} />
                     ))}
                 </div>
-            ))}
-        </div>
-    );
+            </section>
+        );
+    }
 }

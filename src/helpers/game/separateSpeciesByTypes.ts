@@ -1,3 +1,10 @@
+/**
+ * 'separateSpeciesByTypes()' creates an array that organizes all species according to their respective types.
+ *
+ * @param {species} - an array of all available species.
+ * @returns {speciesByTypes} - an array of species separated and organized by their respective types.
+ */
+
 //Types
 import { specieInfo, speciesByTypes } from "@/types/specie";
 

@@ -14,7 +14,7 @@ export async function GET() {
     const client = await clientPromise;
     const db = client.db("pokeBingo");
 
-    const data = await db.collection("game").find({}).toArray();
+    const data = await db.collection("game").find({ refName: "pokeBingo" }).toArray();
 
     return Response.json(data);
 }

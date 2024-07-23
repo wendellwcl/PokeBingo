@@ -12,7 +12,7 @@ import { specieInfo } from "@/types/specie";
 export async function getGameData(): Promise<{ species: specieInfo[]; speciesTypes: string[] }> {
     const currentDate = moment().tz("America/Sao_Paulo").format("DD-MM-YYYY");
 
-    const res = await fetch(`${process.env.BASE_URL}/api/game`, { next: { revalidate: 3600 } });
+    const res = await fetch(`${process.env.BASE_URL}/api/game`, { next: { revalidate: 0 } });
     const [data]: { date: string; types: string[]; species: specieInfo[] }[] = await res.json();
 
     if (currentDate === data.date) {
@@ -44,8 +44,8 @@ export default async function Home() {
     const { species, speciesTypes } = await getGameData();
 
     return (
-        <main>
-            <Game species={species} speciesTypes={speciesTypes} />{" "}
+        <main className="w-full h-full flex items-center justify-center px-4">
+            <Game species={species} speciesTypes={speciesTypes} />
         </main>
     );
 }

@@ -1,3 +1,10 @@
+/**
+ * 'getSpeciesData()' fetches and processes data from the API.
+ *
+ * @returns {speciesList} - an array of all species and their respective information.
+ * @returns {speciesTypesList} - an array of the available species types.
+ */
+
 //Types
 import { specie, specieInfo } from "@/types/specie";
 
@@ -32,7 +39,9 @@ export async function getSpeciesData(): Promise<{ speciesList: specieInfo[]; spe
 }
 
 async function getSpeciesList(): Promise<specie[]> {
-    const res = await fetch("https://pokeapi.co/api/v2/pokemon/?limit=251", { cache: "force-cache" });
+    const res = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${process.env.SPECIES_API_LIMIT}`, {
+        cache: "force-cache",
+    });
     const data = await res.json();
     const species: specie[] = data.results;
 

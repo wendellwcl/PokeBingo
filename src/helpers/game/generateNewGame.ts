@@ -1,3 +1,10 @@
+/**
+ * 'generateNewGame()' executes all the logic necessary to generate data for a new game.
+ *
+ * @returns {selectedSpecies} - array of the species randomly selected for the game.
+ * @returns {selectedTypes} - array of species types randomly selected for the game.
+ */
+
 //Helpers
 import { getSpecies } from "./getSpecies";
 import { getSpeciesData } from "./getSpeciesData";
