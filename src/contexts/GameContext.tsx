@@ -63,7 +63,7 @@ export default function GameContextProvider({ children }: { children: React.Reac
                         };
 
                         if (
-                            !(updatedState.index < state.gameSpecies.length - 1) &&
+                            !(updatedState.index < state.gameSpecies.length) &&
                             updatedState.hits !== state.gameTypes.length
                         ) {
                             return { ...updatedState, status: gameStatus.failed };
