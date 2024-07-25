@@ -1,0 +1,28 @@
+.c-about {
+    @apply flex flex-col  items-center text-white;
+
+    &__c-items {
+        @apply h-full flex flex-col items-center justify-center gap-8;
+    }
+
+    &__item {
+        @apply flex flex-col items-center justify-center gap-1;
+
+        p {
+            @apply text-lg font-bold;
+        }
+
+        a {
+            @apply flex items-center gap-2 text-xl text-text-complementary font-bold;
+
+            svg,
+            img {
+                @apply w-8 h-auto;
+            }
+        }
+    }
+
+    &__back-btn {
+        @apply flex items-center p-4 mb-12 text-2xl text-text-complementary font-bold;
+    }
+}

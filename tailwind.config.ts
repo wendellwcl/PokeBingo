@@ -14,6 +14,7 @@ const config: Config = {
                 "background-light-100": "#c4cd7a",
                 "background-complementary": "#547ebf",
                 success: "#6ec13e",
+                "text-complementary": "#324373",
             },
         },
     },
