@@ -23,6 +23,6 @@
     }
 
     &__back-btn {
-        @apply flex items-center p-4 mb-12 text-2xl text-text-complementary font-bold;
+        @apply flex items-center p-4 mb-12 text-2xl text-text-complementary font-bold hover:text-white transition;
     }
 }
