@@ -25,10 +25,10 @@ export default function GameButton({ type }: { type: gameTypes }) {
     }
 
     return (
-        <div className="w-full aspect-square flex items-center justify-center rounded-xl overflow-hidden [&:nth-child(even)]:bg-background-light-100">
+        <div className="w-full h-full aspect-square flex items-center justify-center rounded-xl overflow-hidden [&:nth-child(even)]:bg-background-light-100">
             {!type.checked && (
                 <button
-                    className="w-full flex flex-col items-center justify-center space-y-2 p-2 sm:p-4 aspect-square hover:bg-background "
+                    className="w-full h-full flex flex-col items-center justify-center space-y-1 p-2 hover:bg-background"
                     onClick={() => handleCheck()}
                     disabled={type.checked || !(game?.status === gameStatus.playing)}
                 >
@@ -38,9 +38,9 @@ export default function GameButton({ type }: { type: gameTypes }) {
                         height={200}
                         priority
                         alt={`simbolo que representa o tipo ${type.name}`}
-                        className="w-full h-full"
+                        className="w-9/12 aspect-square"
                     />
-                    <span className="w-full capitalize font-bold text-sm sm:text-lg">{type.name}</span>
+                    <span className="w-full capitalize font-bold text-sm sm:text-md">{type.name}</span>
                 </button>
             )}
 

@@ -25,9 +25,9 @@ export default function Default({ specie, counter }: defaultProps) {
                     width={200}
                     height={200}
                     priority
-                    className="w-16 sm:w-24"
+                    className="w-20 sm:w-24"
                 />
-                <div className="sm:ml-2 truncate">{specie.name}</div>
+                <div className="ml-1 text-sm sm:text-base truncate">{specie.name}</div>
             </div>
 
             <div className="flex flex-col items-center justify-center">
