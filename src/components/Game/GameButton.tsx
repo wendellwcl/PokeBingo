@@ -33,7 +33,7 @@ export default function GameButton({ type }: { type: gameTypes }) {
                     disabled={type.checked || !(game?.status === gameStatus.playing)}
                 >
                     <Image
-                        src={`assets/images/specieTypes/${type.name}.svg`}
+                        src={`assets/specieTypes/${type.name}.svg`}
                         width={200}
                         height={200}
                         priority
