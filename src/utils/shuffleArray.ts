@@ -1,8 +1,8 @@
 /**
- * 'shuffleArray()' shuffles the items of an array.
+ * "shuffleArray()"" shuffles the items of an array.
  *
- * @param {array} - an array of any type.
- * @returns {array} - the initial array with shuffled items.
+ * @param {array: genericT[]} - an array of any type.
+ * @returns {array: genericT[]} - the initial array with shuffled items.
  *
  * @exemple
  *  shuffleArray([1, 2, 3])

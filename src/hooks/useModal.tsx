@@ -1,3 +1,13 @@
+/**
+ * "useModal()" is a custom hook to manage display states of modal elements.
+ * ("useModal()" is used within the "ModalContext".)
+ *
+ * @param {modalId: string} - an ID referring to a modal element (this ID does not necessarily need to be the ID attribute of the modal html element).
+ * @returns {isOpen: boolean} - the state of the modal.
+ * @returns {open: function} - function to display the modal.
+ * @returns {close: function} - function to close the modal.
+ */
+
 import { useContext } from "react";
 
 //Contexts
