@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { BsDatabase } from "react-icons/bs";
@@ -9,6 +10,10 @@ import styles from "./AboutPage.module.scss";
 
 //Assets
 import icon from "/public/assets/Icon.svg";
+
+export const metadata: Metadata = {
+    title: "Poke Bingo | About",
+};
 
 export default function AboutPage() {
     return (
