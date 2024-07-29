@@ -4,11 +4,11 @@ import { BsDatabase } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa";
 import { IoMdArrowRoundBack } from "react-icons/io";
 
-//Assets
-import icon from "/public/assets/Icon.svg";
-
 //Styles
 import styles from "./AboutPage.module.scss";
+
+//Assets
+import icon from "/public/assets/Icon.svg";
 
 export default function AboutPage() {
     return (

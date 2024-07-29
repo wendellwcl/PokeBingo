@@ -1,5 +1,5 @@
 .c-about {
-    @apply flex flex-col  items-center text-white;
+    @apply h-full flex flex-col items-center text-white;
 
     &__c-items {
         @apply h-full flex flex-col items-center justify-center gap-8;
@@ -13,7 +13,7 @@
         }
 
         a {
-            @apply flex items-center gap-2 text-xl text-text-complementary font-bold;
+            @apply flex items-center gap-2 text-xl text-complementary-dark font-bold hover:text-complementary transition;
 
             svg,
             img {
@@ -23,6 +23,6 @@
     }
 
     &__back-btn {
-        @apply flex items-center p-4 mb-12 text-2xl text-text-complementary font-bold hover:text-white transition;
+        @apply flex items-center p-4 mb-12 text-2xl text-complementary-dark font-bold hover:text-complementary transition;
     }
 }

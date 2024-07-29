@@ -1,0 +1,15 @@
+.content {
+    @apply text-sm;
+
+    p {
+        @apply mb-2;
+
+        span {
+            @apply font-semibold;
+        }
+    }
+
+    &__footer {
+        @apply text-lg text-center font-bold;
+    }
+}

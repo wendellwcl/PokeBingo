@@ -1,0 +1,9 @@
+.c-app-header {
+    @apply flex items-center justify-center p-4;
+
+    &__logo {
+        img {
+            @apply w-auto h-12;
+        }
+    }
+}

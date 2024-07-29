@@ -1,0 +1,7 @@
+.c-failed {
+    @apply flex flex-col items-center gap-1;
+
+    h3 {
+        @apply text-xl font-bold;
+    }
+}

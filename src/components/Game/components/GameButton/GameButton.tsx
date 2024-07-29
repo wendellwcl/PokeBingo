@@ -1,6 +1,9 @@
 import Image from "next/image";
 import { FaCheck } from "react-icons/fa";
 
+//Styles
+import styles from "./GameButton.module.scss";
+
 //Contexts
 import { GameContext } from "@/contexts/GameContext";
 
@@ -25,12 +28,12 @@ export default function GameButton({ type }: { type: gameTypes }) {
     }
 
     return (
-        <div className="w-full h-full aspect-square flex items-center justify-center rounded-xl overflow-hidden [&:nth-child(even)]:bg-background-light-100">
+        <div className={styles["c-game-btn"]}>
             {!type.checked && (
                 <button
-                    className="w-full h-full flex flex-col items-center justify-center space-y-1 p-2 hover:bg-background"
+                    className={styles["c-game-btn__btn-default"]}
                     onClick={() => handleCheck()}
-                    disabled={type.checked || !(game?.status === gameStatus.playing)}
+                    disabled={!(game?.status === gameStatus.playing)}
                 >
                     <Image
                         src={`assets/specieTypes/${type.name}.svg`}
@@ -38,15 +41,14 @@ export default function GameButton({ type }: { type: gameTypes }) {
                         height={200}
                         priority
                         alt={`simbolo que representa o tipo ${type.name}`}
-                        className="w-9/12 aspect-square"
                     />
-                    <span className="w-full capitalize font-bold text-sm sm:text-md">{type.name}</span>
+                    <span>{type.name}</span>
                 </button>
             )}
 
             {type.checked && (
-                <div className="w-full aspect-square flex items-center justify-center bg-success">
-                    <FaCheck className="text-white text-2xl sm:text-4xl" />
+                <div className={styles["c-game-btn__btn-checked"]}>
+                    <FaCheck />
                 </div>
             )}
         </div>

@@ -1,5 +1,8 @@
 import { useContext } from "react";
 
+//Styles
+import styles from "./RestartButton.module.scss";
+
 //Contexts
 import { GameContext } from "@/contexts/GameContext";
 
@@ -7,10 +10,7 @@ export default function RestartButton() {
     const { dispatchGame } = useContext(GameContext);
 
     return (
-        <button
-            className="px-3 py-1 my-1 bg-success rounded-md font-bold text-md text-white"
-            onClick={() => dispatchGame({ type: "restart" })}
-        >
+        <button className={styles["c-restart-btn"]} onClick={() => dispatchGame({ type: "restart" })}>
             Rejogar
         </button>
     );

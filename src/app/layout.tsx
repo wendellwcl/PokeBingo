@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
+//Styles
+import styles from "./layout.module.scss";
+
 //Components
 import AppHeader from "@/components/AppHeader/AppHeader";
 
@@ -19,11 +22,9 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="pt-BR" className="w-full min-w-80 h-full min-h-dvh">
+        <html lang="pt-BR" className={styles["html"]}>
             <MyContextsProviders>
-                <body
-                    className={`${inter.className} my-layout w-full max-w-screen-2xl h-full max-h-dvh my-0 mx-auto bg-background`}
-                >
+                <body className={`${inter.className} ${styles["body"]}`}>
                     <AppHeader />
                     {children}
                 </body>

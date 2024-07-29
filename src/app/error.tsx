@@ -1,10 +1,13 @@
 "use client";
 
+//Styles
+import styles from "./error.module.scss";
+
 export default function ErrorPage() {
     return (
-        <div className="flex flex-col items-center justify-center text-text-complementary">
-            <p className="text-lg text-center font-bold">
-                <span className="text-4xl">Oops!</span>
+        <div className={styles["c-error"]}>
+            <p className={styles["c-error__message"]}>
+                <span>Oops!</span>
                 <br />
                 Algo deu errado. Tente novamente mais tarde.
             </p>

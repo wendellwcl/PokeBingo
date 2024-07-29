@@ -1,0 +1,11 @@
+.c-loading {
+    @apply w-full h-full flex flex-col items-center justify-center gap-4;
+
+    img {
+        @apply animate-[spin_1.5s_linear_infinite];
+    }
+
+    p {
+        @apply text-xl font-semibold;
+    }
+}

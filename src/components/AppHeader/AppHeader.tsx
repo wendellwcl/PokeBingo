@@ -1,18 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 
+//Styles
+import styles from "./AppHeader.module.scss";
+
 export default function AppHeader() {
     return (
-        <header className="flex flex-col items-center justify-center space-y-4 px-4 py-2">
-            <Link href="/">
-                <Image
-                    src="/assets/Logo.png"
-                    alt="Logo Poke Bingo"
-                    width={100}
-                    height={100}
-                    className="w-auto h-12"
-                    priority
-                />
+        <header className={styles["c-app-header"]}>
+            <Link href="/" className={styles["c-app-header__logo"]}>
+                <Image src="/assets/Logo.png" alt="Logo Poke Bingo" width={100} height={100} priority />
             </Link>
         </header>
     );

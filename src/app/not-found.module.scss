@@ -1,0 +1,15 @@
+.c-not-found {
+    @apply h-full flex flex-col items-center justify-center text-complementary-dark;
+
+    &__message {
+        @apply text-xl text-center font-bold mb-8;
+
+        span {
+            @apply text-8xl;
+        }
+    }
+
+    &__btn {
+        @apply flex items-center gap-2 p-4 text-2xl text-complementary-dark font-bold hover:text-complementary transition;
+    }
+}

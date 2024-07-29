@@ -1,7 +1,10 @@
+//Styles
+import styles from "./GameHeader.module.scss";
+
 //Components
-import Default from "./Default";
-import Failed from "./Failed";
-import Success from "./Success";
+import Default from "./components/Default/Default";
+import Failed from "./components/Failed/Failed";
+import Success from "./components/Success/Success";
 
 //Types
 import { gameStatus } from "@/types/game";
@@ -15,7 +18,7 @@ interface GameHeaderProps {
 
 export default function GameHeader({ gameStatus, counter, specie }: GameHeaderProps) {
     return (
-        <div className="p-2 sm:px-4 bg-background-complementary text-md sm:text-xl text-white">
+        <div className={styles["c-game-header"]}>
             {gameStatus === "playing" && <Default specie={specie} counter={counter} />}
 
             {gameStatus === "success" && <Success />}

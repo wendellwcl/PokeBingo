@@ -9,12 +9,12 @@ const config: Config = {
     theme: {
         extend: {
             colors: {
-                background: "#b3bf54",
-                "background-light": "#ccd48d",
-                "background-light-100": "#c4cd7a",
-                "background-complementary": "#547ebf",
+                "primary-solid": "#b3bf54",
+                "primary-light": "#ccd48d",
+                "primary-light-100": "#c4cd7a",
+                complementary: "#547ebf",
+                "complementary-dark": "#324373",
                 success: "#6ec13e",
-                "text-complementary": "#324373",
             },
         },
     },

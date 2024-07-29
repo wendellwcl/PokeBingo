@@ -1,19 +1,19 @@
 import Link from "next/link";
 import { IoMdArrowRoundBack } from "react-icons/io";
 
+//Styles
+import styles from "./not-found.module.scss";
+
 export default function NotFound() {
     return (
-        <div className="flex flex-col items-center justify-center text-text-complementary">
-            <p className="text-xl mb-8 text-center font-bold">
-                <span className="text-8xl">404</span>
+        <div className={styles["c-not-found"]}>
+            <p className={styles["c-not-found__message"]}>
+                <span>404</span>
                 <br />
                 Recurso não encontrado
             </p>
 
-            <Link
-                href="/"
-                className="flex items-center gap-2 p-4 mb-12 text-2xl text-text-complementary font-bold hover:text-white transition"
-            >
+            <Link href="/" className={styles["c-not-found__btn"]}>
                 <IoMdArrowRoundBack />
                 Home
             </Link>

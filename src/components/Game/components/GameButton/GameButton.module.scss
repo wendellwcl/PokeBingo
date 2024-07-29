@@ -1,0 +1,31 @@
+.c-game-btn {
+    @apply w-full h-full aspect-square flex items-center justify-center rounded-xl overflow-hidden;
+
+    &:nth-child(even) {
+        @apply bg-primary-light-100;
+    }
+
+    &__btn-default {
+        @apply w-full h-full flex flex-col items-center justify-center gap-1 p-2 hover:bg-primary-solid disabled:opacity-50;
+
+        &:disabled {
+            @apply opacity-50 hover:bg-inherit;
+        }
+
+        img {
+            @apply w-3/4 aspect-square;
+        }
+
+        span {
+            @apply w-full capitalize font-bold text-sm sm:text-base;
+        }
+    }
+
+    &__btn-checked {
+        @apply w-full aspect-square flex items-center justify-center bg-success;
+
+        svg {
+            @apply text-white text-2xl sm:text-4xl;
+        }
+    }
+}

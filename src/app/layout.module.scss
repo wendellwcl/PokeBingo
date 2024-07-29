@@ -1,0 +1,7 @@
+.html {
+    @apply w-full min-w-80 h-full min-h-dvh;
+
+    .body {
+        @apply flex flex-col w-full max-w-screen-2xl h-full max-h-dvh my-0 mx-auto bg-primary-solid;
+    }
+}

@@ -1,0 +1,30 @@
+.c-modal {
+    &__bg {
+        @apply fixed inset-0 z-40 w-full min-w-[320px] h-full bg-black bg-opacity-70 px-6 py-16 flex items-center justify-center;
+    }
+
+    &__body {
+        @apply z-50 w-full max-w-xl max-h-full flex flex-col bg-white rounded-xl overflow-hidden shadow-2xl;
+    }
+
+    &__header,
+    &__content {
+        @apply p-4;
+    }
+
+    &__header {
+        @apply bg-complementary text-white flex justify-between items-start;
+    }
+
+    &__title {
+        @apply self-center text-lg font-bold;
+    }
+
+    &__close {
+        @apply text-4xl;
+    }
+
+    &__content {
+        @apply overflow-y-auto;
+    }
+}

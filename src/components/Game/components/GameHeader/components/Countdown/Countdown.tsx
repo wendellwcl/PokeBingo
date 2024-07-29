@@ -1,6 +1,9 @@
 import moment from "moment-timezone";
 import { useEffect, useState } from "react";
 
+//Styles
+import styles from "./Countdown.module.scss";
+
 export default function Countdown() {
     const [remainingTime, setRemainingTime] = useState<string | null>(null);
 
@@ -23,5 +26,5 @@ export default function Countdown() {
         return () => clearInterval(countdownInterval);
     }, []);
 
-    return <span className="font-bold text-nowrap">{remainingTime}</span>;
+    return <span className={styles["c-countdown"]}>{remainingTime}</span>;
 }

@@ -1,0 +1,31 @@
+.c-default {
+    @apply flex;
+
+    .c-specie {
+        @apply flex-1 flex items-center font-bold capitalize;
+
+        img {
+            @apply w-20 sm:w-24;
+        }
+
+        &__name {
+            @apply ml-1 text-sm sm:text-base truncate;
+        }
+    }
+
+    .c-round {
+        @apply flex flex-col items-center justify-center gap-2;
+
+        &__counter {
+            @apply w-8 sm:w-10 aspect-square flex items-center justify-center rounded-full font-bold text-complementary bg-white;
+        }
+
+        &__skip-btn {
+            @apply flex items-center px-4 font-bold sm:text-xl;
+
+            svg {
+                @apply text-xl sm:text-2xl;
+            }
+        }
+    }
+}

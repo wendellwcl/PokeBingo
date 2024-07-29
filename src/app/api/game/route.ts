@@ -10,6 +10,7 @@ interface dbGameProps {
     species: specieInfo[];
 }
 
+//Establishes connection to the game-related database and retrieves game data.
 export async function GET() {
     const client = await clientPromise;
     const db = client.db("pokeBingo");
@@ -19,6 +20,7 @@ export async function GET() {
     return Response.json(data);
 }
 
+//Establishes connection to the game-related database to update game data.
 export async function PUT(request: Request) {
     const client = await clientPromise;
     const db = client.db("pokeBingo");
