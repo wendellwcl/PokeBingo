@@ -5,8 +5,8 @@ export default function GameModalHowToPlay() {
     return (
         <div className={styles["content"]}>
             <p>
-                <span>1. Apresentação das Espécies: </span>O jogo apresenta 9 "tipos de espécies" no início. E, a cada
-                rodada, uma espécie específica é mostrada ao jogador.
+                <span>1. Apresentação das Espécies: </span>O jogo apresenta 9 &quot;tipos de espécies&ldquo; no início.
+                E, a cada rodada, uma espécie específica é mostrada ao jogador.
             </p>
 
             <p>
@@ -28,8 +28,8 @@ export default function GameModalHowToPlay() {
 
             <p>
                 <span>5. Respostas Certas: </span>
-                Se a tentativa de resposta estiver correta, a respectiva alternativa será marcada como "concluída" e o
-                jogo segue para a próxima rodada.
+                Se a tentativa de resposta estiver correta, a respectiva alternativa será marcada como
+                &quot;concluída&ldquo; e o jogo segue para a próxima rodada.
             </p>
 
             <p>

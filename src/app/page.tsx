@@ -1,8 +1,10 @@
+import dynamic from "next/dynamic";
+
 //Styles
 import styles from "./page.module.scss";
 
 //Components
-import Game from "@/components/Game/Game";
+const Game = dynamic(() => import("@/components/Game/Game"), { ssr: false });
 
 //Helpers
 import { getGameData } from "@/helpers/game/getGameData";
@@ -13,7 +15,7 @@ export default async function Home() {
 
     return (
         <main className={styles["c-page"]}>
-            <Game species={species} speciesTypes={speciesTypes} />
+            <Game species={species || null} speciesTypes={speciesTypes || null} />
         </main>
     );
 }

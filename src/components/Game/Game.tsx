@@ -23,8 +23,8 @@ import { gameStatus } from "@/types/game";
 import { specieInfo } from "@/types/specie";
 
 interface GameProps {
-    species: specieInfo[];
-    speciesTypes: string[];
+    species: specieInfo[] | null;
+    speciesTypes: string[] | null;
 }
 
 export default function Game({ species, speciesTypes }: GameProps) {
@@ -35,7 +35,7 @@ export default function Game({ species, speciesTypes }: GameProps) {
         if (species && speciesTypes) {
             dispatchGame({ type: "init", gameSpecies: species, gameTypes: speciesTypes });
         }
-    }, [species, speciesTypes]);
+    }, [species, speciesTypes, dispatchGame]);
 
     if (game) {
         if (game.status === gameStatus.loading) {
