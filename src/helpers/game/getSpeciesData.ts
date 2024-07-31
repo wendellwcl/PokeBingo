@@ -49,11 +49,22 @@ export async function getSpeciesData(): Promise<{ speciesList: specieInfo[]; spe
 
 //"getSpeciesList()" fetches species list from API.
 async function getSpeciesList(): Promise<specie[]> {
-    const res = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${process.env.SPECIES_API_LIMIT}`, {
-        cache: "force-cache",
-    });
-    const data = await res.json();
-    const species: specie[] = data.results;
+    try {
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${process.env.SPECIES_API_LIMIT}`, {
+            cache: "force-cache",
+        });
 
-    return species;
+        if (!res.ok) {
+            throw new Error("Failed to connect PokeAPI");
+        }
+
+        const data = await res.json();
+        const species: specie[] = data.results;
+
+        return species;
+    } catch (error) {
+        console.log(error);
+
+        throw new Error("Failed to connect PokeAPI");
+    }
 }

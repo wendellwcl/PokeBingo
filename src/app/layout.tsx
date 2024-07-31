@@ -1,13 +1,13 @@
-import MyContextsProviders from "@/components/MyContextsProviders/MyContextsProviders";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
 
 //Styles
+import "./globals.css";
 import styles from "./layout.module.scss";
 
 //Components
 import AppHeader from "@/components/AppHeader/AppHeader";
+import MyContextsProviders from "@/components/MyContextsProviders/MyContextsProviders";
 
 const inter = Inter({ subsets: ["latin"] });
 

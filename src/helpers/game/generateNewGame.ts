@@ -18,13 +18,19 @@ import { shuffleArray } from "@/utils/shuffleArray";
 import { specieInfo } from "@/types/specie";
 
 export async function generateNewGame(): Promise<{ selectedSpecies: specieInfo[]; selectedTypes: string[] }> {
-    const { speciesList, speciesTypesList } = await getSpeciesData();
+    try {
+        const { speciesList, speciesTypesList } = await getSpeciesData();
 
-    const speciesByTypes = separateSpeciesByTypes(speciesList);
+        const speciesByTypes = separateSpeciesByTypes(speciesList);
 
-    const selectedTypes = randomlySelectTypes(speciesTypesList);
+        const selectedTypes = randomlySelectTypes(speciesTypesList);
 
-    const selectedSpecies = shuffleArray(getSpecies(speciesList, speciesByTypes, selectedTypes));
+        const selectedSpecies = shuffleArray(getSpecies(speciesList, speciesByTypes, selectedTypes));
 
-    return { selectedSpecies, selectedTypes };
+        return { selectedSpecies, selectedTypes };
+    } catch (error) {
+        console.log(error);
+
+        throw new Error("Error when trying to generate new game");
+    }
 }

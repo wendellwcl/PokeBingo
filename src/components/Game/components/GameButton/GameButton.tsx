@@ -16,23 +16,12 @@ import { gameStatus, gameTypes } from "@/types/game";
 export default function GameButton({ type }: { type: gameTypes }) {
     const { game, dispatchGame } = useContext(GameContext);
 
-    function handleCheck() {
-        if (game) {
-            if (game.gameSpecies[game.index].types.includes(type.name)) {
-                dispatchGame({ type: "check", target: type.name });
-                return;
-            }
-
-            dispatchGame({ type: "next" });
-        }
-    }
-
     return (
         <div className={styles["c-game-btn"]}>
             {!type.checked && (
                 <button
                     className={styles["c-game-btn__btn-default"]}
-                    onClick={() => handleCheck()}
+                    onClick={() => dispatchGame({ type: "check", target: type.name })}
                     disabled={!(game?.status === gameStatus.playing)}
                 >
                     <Image

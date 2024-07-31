@@ -26,5 +26,5 @@ export default function Countdown() {
         return () => clearInterval(countdownInterval);
     }, []);
 
-    return <span className={styles["c-countdown"]}>{remainingTime}</span>;
+    return <span className={styles["c-countdown"]}>{remainingTime || "--h --min --"}</span>;
 }

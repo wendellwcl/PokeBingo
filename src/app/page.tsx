@@ -1,21 +1,31 @@
-import dynamic from "next/dynamic";
+import { redirect } from "next/navigation";
 
 //Styles
 import styles from "./page.module.scss";
 
 //Components
-const Game = dynamic(() => import("@/components/Game/Game"), { ssr: false });
+import Game from "@/components/Game/Game";
 
 //Helpers
 import { getGameData } from "@/helpers/game/getGameData";
+import { specieInfo } from "@/types/specie";
 
 export default async function Home() {
+    let gameSpecies: specieInfo[] = [];
+    let gameSpeciesTypes: string[] = [];
+
     //"getGameData()" fetches game data from the database, or generate new game data if necessary.
-    const { species, speciesTypes } = await getGameData();
+    try {
+        const { species, speciesTypes } = await getGameData();
+        gameSpecies = species;
+        gameSpeciesTypes = speciesTypes;
+    } catch (error) {
+        redirect("/error");
+    }
 
     return (
         <main className={styles["c-page"]}>
-            <Game species={species || null} speciesTypes={speciesTypes || null} />
+            <Game species={gameSpecies} speciesTypes={gameSpeciesTypes} />
         </main>
     );
 }

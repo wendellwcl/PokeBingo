@@ -77,7 +77,7 @@ export default function GameContextProvider({ children }: { children: React.Reac
                             hits: state.hits + 1,
                         };
 
-                        //Check remaining roudns, if there are no rounds remaining and there are incomplete alternatives, end the game as "failed".
+                        //Check remaining rounds, if there are no rounds remaining and there are incomplete alternatives, end the game as "failed".
                         if (
                             !(updatedState.index < state.gameSpecies.length) &&
                             updatedState.hits !== state.gameTypes.length
@@ -94,7 +94,12 @@ export default function GameContextProvider({ children }: { children: React.Reac
                         return updatedState;
                     }
 
-                    //If the answer attempt is wrong, update the "index" property for the game to continue to the next round.
+                    //If the answer attempt is wrong, check remaining rounds, if there are no rounds remaining and there are incomplete alternatives, end the game as "failed".
+                    if (!(state.index < state.gameSpecies.length - 1)) {
+                        return { ...state, status: gameStatus.failed };
+                    }
+
+                    //If the answer attempt is wrong but there are rounds remaining, update the "index" property for the game to continue to the next round.
                     return { ...state, index: state.index + 1 };
                 }
 
