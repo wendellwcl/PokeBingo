@@ -20,6 +20,12 @@ export default async function Home() {
         gameSpecies = species;
         gameSpeciesTypes = speciesTypes;
     } catch (error) {
+        if (error instanceof Error) {
+            return <>{error.message}</>;
+        } else {
+            return <>UNCKNOW</>;
+        }
+        console.log(error);
         redirect("/error");
     }
 
