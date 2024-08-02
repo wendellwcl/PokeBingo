@@ -45,13 +45,18 @@ export async function getGameData(): Promise<{ species: specieInfo[]; speciesTyp
                 species: selectedSpecies,
             });
 
+            console.log("1");
+
             const requestOptions = {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: requestBody,
             };
 
+            console.log("2");
+
             const newGameRes = await fetch(`${process.env.BASE_URL}/api/game`, requestOptions);
+            console.log("3");
             const newGameData = await newGameRes.json();
 
             console.warn("DATABASE PUT");
