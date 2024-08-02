@@ -49,7 +49,12 @@ export async function PUT(request: Request) {
             );
         console.log("api 5");
 
-        return NextResponse.json(req);
+        const response = NextResponse.json(req);
+        response.headers.set("Access-Control-Allow-Origin", "*");
+        response.headers.set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+        response.headers.set("Access-Control-Allow-Headers", "Content-Type");
+
+        return response;
     } catch (error) {
         console.log("Error updating game database:", error);
 

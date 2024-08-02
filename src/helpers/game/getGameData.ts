@@ -39,18 +39,16 @@ export async function getGameData(): Promise<{ species: specieInfo[]; speciesTyp
             console.log("species", selectedSpecies);
             console.log("types", selectedTypes);
 
-            const requestBody = JSON.stringify({
-                date: currentDate,
-                types: selectedTypes,
-                species: selectedSpecies,
-            });
-
             console.log("1");
 
             const requestOptions = {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
-                body: requestBody,
+                body: JSON.stringify({
+                    date: currentDate,
+                    types: selectedTypes,
+                    species: selectedSpecies,
+                }),
             };
 
             console.log("2");
