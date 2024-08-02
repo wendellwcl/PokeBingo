@@ -29,8 +29,12 @@ export async function generateNewGame(): Promise<{ selectedSpecies: specieInfo[]
 
         return { selectedSpecies, selectedTypes };
     } catch (error) {
-        console.log(error);
-
-        throw new Error("Error when trying to generate new game");
+        if (error instanceof Error) {
+            console.error(error);
+            throw new Error(error.message);
+        } else {
+            console.error("Unknown error when trying to generate new game", error);
+            throw new Error("Unknown error when trying to generate new game");
+        }
     }
 }

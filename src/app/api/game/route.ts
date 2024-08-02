@@ -20,9 +20,12 @@ export async function GET() {
 
         return NextResponse.json(data);
     } catch (error) {
-        console.log("Error fetching game data", error);
+        console.error("Error fetching game data from database", error);
 
-        return NextResponse.json({ success: false, message: "Failed to fetch game data" }, { status: 500 });
+        return NextResponse.json(
+            { success: false, message: "Failed to fetch game data from database" },
+            { status: 500 }
+        );
     }
 }
 

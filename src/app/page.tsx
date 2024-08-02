@@ -1,10 +1,9 @@
-import { redirect } from "next/navigation";
-
 //Styles
 import styles from "./page.module.scss";
 
 //Components
 import Game from "@/components/Game/Game";
+import ErrorPage from "./error";
 
 //Helpers
 import { getGameData } from "@/helpers/game/getGameData";
@@ -21,12 +20,13 @@ export default async function Home() {
         gameSpeciesTypes = speciesTypes;
     } catch (error) {
         if (error instanceof Error) {
-            return <>{error.message}</>;
+            console.error(error);
+            console.error(`Error message: ${error.message}`);
+            return <ErrorPage errorMessage={error.message} />;
         } else {
-            return <>UNCKNOW</>;
+            console.error("Uncknown error");
+            return <ErrorPage errorMessage="Uncknown error" />;
         }
-        console.log(error);
-        redirect("/error");
     }
 
     return (

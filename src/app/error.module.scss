@@ -1,5 +1,5 @@
 .c-error {
-    @apply h-full flex items-center justify-center text-complementary-dark;
+    @apply h-full flex flex-col items-center justify-center p-4 text-complementary-dark;
 
     &__message {
         @apply text-lg text-center font-bold;
@@ -7,5 +7,9 @@
         span {
             @apply text-4xl;
         }
+    }
+
+    &__error-message {
+        @apply text-sm;
     }
 }

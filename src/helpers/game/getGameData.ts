@@ -54,11 +54,11 @@ export async function getGameData(): Promise<{ species: specieInfo[]; speciesTyp
         }
     } catch (error) {
         if (error instanceof Error) {
-            console.log(error.message);
+            console.error(error);
             throw new Error(error.message);
         } else {
-            console.error("Unknown error", error);
-            throw new Error("Unknown error");
+            console.error("Unknown error when trying to get game data", error);
+            throw new Error("Unknown error when trying to get game data");
         }
     }
 }
