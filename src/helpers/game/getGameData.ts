@@ -22,6 +22,8 @@ export async function getGameData(): Promise<{ species: specieInfo[]; speciesTyp
         const res = await fetch(`${process.env.BASE_URL}/api/game`, { next: { revalidate: 0 } });
         const data = await res.json();
 
+        console.warn("DATABASE GET");
+
         if (!res.ok) {
             throw new Error(data.message);
         }
@@ -33,23 +35,34 @@ export async function getGameData(): Promise<{ species: specieInfo[]; speciesTyp
         } else {
             const { selectedSpecies, selectedTypes } = await generateNewGame();
 
+            console.warn("GENERATE NEW GAME");
+            console.log("species", selectedSpecies);
+            console.log("types", selectedTypes);
+
+            const requestBody = JSON.stringify({
+                date: currentDate,
+                types: selectedTypes,
+                species: selectedSpecies,
+            });
+
             const requestOptions = {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    date: currentDate,
-                    types: selectedTypes,
-                    species: selectedSpecies,
-                }),
+                body: requestBody,
             };
 
             const newGameRes = await fetch(`${process.env.BASE_URL}/api/game`, requestOptions);
             const newGameData = await newGameRes.json();
 
+            console.warn("DATABASE PUT");
+
             if (!newGameRes.ok) {
                 throw new Error(newGameData.message);
             }
 
+            console.warn("BEFORE RETURN NEWGAMEDATA");
+            console.log("new species", newGameData.species);
+            console.log("new types", newGameData.types);
             return { species: newGameData.species, speciesTypes: newGameData.types };
         }
     } catch (error) {
