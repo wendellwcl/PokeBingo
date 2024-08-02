@@ -31,7 +31,7 @@ export async function GET() {
 
 //Establishes connection to the game-related database to update game data.
 export async function PUT(request: Request) {
-    console.log("PUT");
+    console.log("POST");
     try {
         console.log("api 1");
         const client = await clientPromise;
@@ -49,12 +49,7 @@ export async function PUT(request: Request) {
             );
         console.log("api 5");
 
-        const response = NextResponse.json(req);
-        response.headers.set("Access-Control-Allow-Origin", "*");
-        response.headers.set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-        response.headers.set("Access-Control-Allow-Headers", "Content-Type");
-
-        return response;
+        return NextResponse.json(req);
     } catch (error) {
         console.log("Error updating game database:", error);
 
