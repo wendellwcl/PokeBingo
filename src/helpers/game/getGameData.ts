@@ -22,24 +22,16 @@ export async function getGameData(): Promise<{ species: specieInfo[]; speciesTyp
         const res = await fetch(`${process.env.BASE_URL}/api/game`, { next: { revalidate: 0 } });
         const data = await res.json();
 
-        console.warn("DATABASE GET");
-
         if (!res.ok) {
             throw new Error(data.message);
         }
 
         //If the current date also matches the date obtained from the database, use the game data obtained from the database.
         //Else, generate new game data and send it to the database, also using this new data to set the game.
-        if (!(currentDate === data.date)) {
+        if (currentDate === data.date) {
             return { species: data.species, speciesTypes: data.types };
         } else {
             const { selectedSpecies, selectedTypes } = await generateNewGame();
-
-            console.warn("GENERATE NEW GAME");
-            console.log("species", selectedSpecies);
-            console.log("types", selectedTypes);
-
-            console.log("1");
 
             const requestOptions = {
                 method: "POST",
@@ -51,22 +43,14 @@ export async function getGameData(): Promise<{ species: specieInfo[]; speciesTyp
                 }),
             };
 
-            console.log("2");
-
             const newGameRes = await fetch(`${process.env.BASE_URL}/api/game`, requestOptions);
-            console.log(newGameRes);
-            console.log("3");
-            const newGameData = await newGameRes.json();
 
-            console.warn("DATABASE PUT");
+            const newGameData = await newGameRes.json();
 
             if (!newGameRes.ok) {
                 throw new Error(newGameData.message);
             }
 
-            console.warn("BEFORE RETURN NEWGAMEDATA");
-            console.log("new species", newGameData.species);
-            console.log("new types", newGameData.types);
             return { species: newGameData.species, speciesTypes: newGameData.types };
         }
     } catch (error) {

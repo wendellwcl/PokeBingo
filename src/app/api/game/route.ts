@@ -31,15 +31,10 @@ export async function GET() {
 
 //Establishes connection to the game-related database to update game data.
 export async function POST(request: Request) {
-    console.log("POST");
     try {
-        console.log("api 1");
         const client = await clientPromise;
-        console.log("api 2");
         const db = client.db("pokeBingo");
-        console.log("api 3");
         const req: dbGameProps = await request.json();
-        console.log("api 4");
 
         await db
             .collection("game")
@@ -47,7 +42,6 @@ export async function POST(request: Request) {
                 { refName: "pokeBingo" },
                 { $set: { refName: "pokeBingo", date: req.date, types: req.types, species: req.species } }
             );
-        console.log("api 5");
 
         return NextResponse.json(req);
     } catch (error) {
