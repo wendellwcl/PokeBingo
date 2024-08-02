@@ -32,16 +32,14 @@ export default function Game({ species, speciesTypes }: GameProps) {
     const { isOpen: howToPlayModalIsOpen, close: closeHowToPlayModal } = useModal("howToPlayModal");
 
     useEffect(() => {
-        if (species && speciesTypes) {
+        if (species && speciesTypes && dispatchGame) {
             dispatchGame({ type: "init", gameSpecies: species, gameTypes: speciesTypes });
         }
     }, [species, speciesTypes, dispatchGame]);
 
     if (!game || game.status === gameStatus.loading) {
         return <LoadingScreen />;
-    }
-
-    if (game) {
+    } else {
         return (
             <div className={styles["c-game"]}>
                 <GameInterface game={game} />

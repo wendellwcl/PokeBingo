@@ -34,12 +34,10 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="pt-BR" className={styles["html"]}>
-            <MyContextsProviders>
-                <body className={`${inter.className} ${styles["body"]}`}>
-                    <AppHeader />
-                    {children}
-                </body>
-            </MyContextsProviders>
+            <body className={`${inter.className} ${styles["body"]}`}>
+                <AppHeader />
+                <MyContextsProviders>{children}</MyContextsProviders>
+            </body>
         </html>
     );
 }

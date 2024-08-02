@@ -16,7 +16,7 @@ export async function GET() {
         const client = await clientPromise;
         const db = client.db("pokeBingo");
 
-        const [data] = await db.collection("game").find({ refName: "pokeBingo" }).toArray();
+        const data = await db.collection("game").findOne({ refName: "pokeBingo" });
 
         return NextResponse.json(data);
     } catch (error) {
@@ -43,7 +43,7 @@ export async function PUT(request: Request) {
                 { $set: { refName: "pokeBingo", date: req.date, types: req.types, species: req.species } }
             );
 
-        return NextResponse.json({ ...req });
+        return NextResponse.json(req);
     } catch (error) {
         console.log("Error updating game database:", error);
 
