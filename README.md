@@ -2,13 +2,13 @@
     <img src='public/assets/Logo.png' alt='logo do projeto: ToDo App' width='200'>
 </h1>
 
-<h2 align='center'><a href='https://poke-bingo.vercel.app/' target='_blank' style='display: block; color: #b3bf54; font-weight: bold; margin: 30px'>Acessar Site</a></h2>
+<h2 align='center'><a href='https://poke-bingo-wendell-correa-limas-projects.vercel.app/' target='_blank' style='display: block; color: #b3bf54; font-weight: bold; margin: 30px'>Acessar Site</a></h2>
 
 <h2 style='color: #b3bf54; border-bottom:none'>Descrição do projeto:</h2>
 <p style='margin-bottom: 30px'>
-    O <a href='https://poke-bingo.vercel.app/' target='_blank' style='color: #b3bf54; font-weight: bold;'>PokeBingo</a> é um desafio diário de bingo com espécies de Pokémon. Serão apresentadas espécies aleatórias e você deverá responder a qual dos tipos de espécies na cartela de bingo elas correspondem. Um novo bingo é gerado todos os dias.
+    O <a href='https://poke-bingo-wendell-correa-limas-projects.vercel.app/' target='_blank' style='color: #b3bf54; font-weight: bold;'>PokeBingo</a> é um desafio diário de bingo com espécies de Pokémon. Serão apresentadas espécies aleatórias e você deverá responder a qual dos tipos de espécies na cartela de bingo elas correspondem. Um novo bingo é gerado todos os dias.
     Este projeto foi contruído utilizando e consumindo a <a href='https://pokeapi.co/' target='_blank' style='color: #b3bf54; font-weight: bold;'>PokeAPI</a>, uma grande fonte de dados sobre Pokémon.
-    <a href='https://poke-bingo.vercel.app/' target='_blank' style='display: block; color: #b3bf54; font-size: 20px; font-weight: bold; margin-top: 30px'>Clique aqui para acessar o projeto completo.</a>
+    <a href='https://poke-bingo-wendell-correa-limas-projects.vercel.app/' target='_blank' style='display: block; color: #b3bf54; font-size: 20px; font-weight: bold; margin-top: 30px'>Clique aqui para acessar o projeto completo.</a>
 </p>
 
 <p align='center'style='margin-bottom: 30px'>
