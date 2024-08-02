@@ -42,7 +42,7 @@ export async function getGameData(): Promise<{ species: specieInfo[]; speciesTyp
             console.log("1");
 
             const requestOptions = {
-                method: "PUT",
+                method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     date: currentDate,

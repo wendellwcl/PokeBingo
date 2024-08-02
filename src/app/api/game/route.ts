@@ -30,7 +30,7 @@ export async function GET() {
 }
 
 //Establishes connection to the game-related database to update game data.
-export async function PUT(request: Request) {
+export async function POST(request: Request) {
     console.log("POST");
     try {
         console.log("api 1");
