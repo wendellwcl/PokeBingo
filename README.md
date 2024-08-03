@@ -19,7 +19,7 @@
 <ul style='list-style: none; list-style-type: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px'>
     <li style='display: flex; flex-direction: column; align-items: center; margin-right: 30px'>
         <img alt="icone React" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" />
-        NexJS
+        NextJS
     </li>
     <li style='display: flex; flex-direction: column; align-items: center; margin-right: 30px'>
         <img alt="icone React" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
