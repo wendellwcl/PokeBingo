@@ -19,7 +19,7 @@ export function getSpecies(
     const selectedSpecies: specieInfo[] = getSpeciesOfSelectedTypes(speciesByTypes, selectedTypes);
 
     //This loop randomly selects more species to complete the game's species list.
-    for (let i = selectedSpecies.length; i < Number(process.env.SPECIES_GAME_LIMIT); i++) {
+    for (let i = selectedSpecies.length; i < Number(process.env.NEXT_PUBLIC_SPECIES_GAME_LIMIT); i++) {
         let n = Math.floor(Math.random() * speciesList.length);
 
         //Check if the species is already included.

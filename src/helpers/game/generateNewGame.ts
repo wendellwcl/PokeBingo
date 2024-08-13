@@ -16,6 +16,7 @@ import { shuffleArray } from "@/utils/shuffleArray";
 
 //Types
 import { specieInfo } from "@/types/specie";
+import { postGameData } from "./postGameData";
 
 export async function generateNewGame(): Promise<{ selectedSpecies: specieInfo[]; selectedTypes: string[] }> {
     try {
@@ -27,7 +28,9 @@ export async function generateNewGame(): Promise<{ selectedSpecies: specieInfo[]
 
         const selectedSpecies = shuffleArray(getSpecies(speciesList, speciesByTypes, selectedTypes));
 
-        return { selectedSpecies, selectedTypes };
+        const newGameData = await postGameData(selectedSpecies, selectedTypes);
+
+        return { selectedSpecies: newGameData.species, selectedTypes: newGameData.speciesTypes };
     } catch (error) {
         if (error instanceof Error) {
             console.error(error);

@@ -1,25 +1,23 @@
 /**
- * "getGameData()" fetches game data from the database and checks if this data is valid, if the data is invalid, it generates new data and sends it to the database.
+ * "getGameData()" fetches game data from the database and checks if this data is valid.
  *
  * @returns {species: specieInfo[]} - an array of species data.
  * @returns {speciesTypes: string[]} - an array of species types data.
+ * @returns {null} - null.
  */
 
 import moment from "moment-timezone";
 
-//Helpers
-import { generateNewGame } from "./generateNewGame";
-
 //Types
 import { specieInfo } from "@/types/specie";
 
-export async function getGameData(): Promise<{ species: specieInfo[]; speciesTypes: string[] }> {
+export async function getGameData(): Promise<{ species: specieInfo[]; speciesTypes: string[] } | null> {
     try {
         //Get current date.
         const currentDate = moment().tz("America/Sao_Paulo").format("DD-MM-YYYY");
 
         //Get database data.
-        const res = await fetch(`${process.env.BASE_URL}/api/game`, { next: { revalidate: 0 } });
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/game`, { next: { revalidate: 0 } });
         const data = await res.json();
 
         if (!res.ok) {
@@ -31,27 +29,7 @@ export async function getGameData(): Promise<{ species: specieInfo[]; speciesTyp
         if (currentDate === data.date) {
             return { species: data.species, speciesTypes: data.types };
         } else {
-            const { selectedSpecies, selectedTypes } = await generateNewGame();
-
-            const requestOptions = {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    date: currentDate,
-                    types: selectedTypes,
-                    species: selectedSpecies,
-                }),
-            };
-
-            const newGameRes = await fetch(`${process.env.BASE_URL}/api/game`, requestOptions);
-
-            const newGameData = await newGameRes.json();
-
-            if (!newGameRes.ok) {
-                throw new Error(newGameData.message);
-            }
-
-            return { species: newGameData.species, speciesTypes: newGameData.types };
+            return null;
         }
     } catch (error) {
         if (error instanceof Error) {

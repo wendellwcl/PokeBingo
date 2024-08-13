@@ -15,9 +15,12 @@ export default async function Home() {
 
     //"getGameData()" fetches game data from the database, or generate new game data if necessary.
     try {
-        const { species, speciesTypes } = await getGameData();
-        gameSpecies = species;
-        gameSpeciesTypes = speciesTypes;
+        const data = await getGameData();
+
+        if (data) {
+            gameSpecies = data.species;
+            gameSpeciesTypes = data.speciesTypes;
+        }
     } catch (error) {
         if (error instanceof Error) {
             console.error(error);

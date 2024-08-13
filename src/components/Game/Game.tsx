@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 
 //Styles
 import styles from "./Game.module.scss";
@@ -19,6 +19,7 @@ import { GameContext } from "@/contexts/GameContext";
 import useModal from "@/hooks/useModal";
 
 //Types
+import { generateNewGame } from "@/helpers/game/generateNewGame";
 import { gameStatus } from "@/types/game";
 import { specieInfo } from "@/types/specie";
 
@@ -31,14 +32,24 @@ export default function Game({ species, speciesTypes }: GameProps) {
     const { game, dispatchGame } = useContext(GameContext);
     const { isOpen: howToPlayModalIsOpen, close: closeHowToPlayModal } = useModal("howToPlayModal");
 
+    const [loadingMessage, setLoadingMessage] = useState<string | null>(null);
+
     useEffect(() => {
-        if (species && speciesTypes && dispatchGame) {
-            dispatchGame({ type: "init", gameSpecies: species, gameTypes: speciesTypes });
+        async function handleGameData() {
+            if (species.length > 0 && speciesTypes.length > 0 && dispatchGame) {
+                dispatchGame({ type: "init", gameSpecies: species, gameTypes: speciesTypes });
+            } else {
+                setLoadingMessage("Gerando novo jogo...");
+                const { selectedSpecies, selectedTypes } = await generateNewGame();
+                dispatchGame({ type: "init", gameSpecies: selectedSpecies, gameTypes: selectedTypes });
+            }
         }
+
+        handleGameData();
     }, [species, speciesTypes, dispatchGame]);
 
     if (!game || game.status === gameStatus.loading) {
-        return <LoadingScreen />;
+        return <LoadingScreen message={loadingMessage} />;
     } else {
         return (
             <div className={styles["c-game"]}>
