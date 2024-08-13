@@ -13,7 +13,7 @@ export default async function Home() {
     let gameSpecies: specieInfo[] = [];
     let gameSpeciesTypes: string[] = [];
 
-    //"getGameData()" fetches game data from the database, or generate new game data if necessary.
+    //"getGameData()" fetches game data from the database.
     try {
         const data = await getGameData();
 

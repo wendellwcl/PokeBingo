@@ -25,7 +25,7 @@ export async function getGameData(): Promise<{ species: specieInfo[]; speciesTyp
         }
 
         //If the current date also matches the date obtained from the database, use the game data obtained from the database.
-        //Else, generate new game data and send it to the database, also using this new data to set the game.
+        //Else, return null. (Data for a new game must be generated in Game component).
         if (currentDate === data.date) {
             return { species: data.species, speciesTypes: data.types };
         } else {
